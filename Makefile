@@ -5,17 +5,19 @@ else
     SUFFIX = so
 endif
 
+deadbeef_prefix=/opt/deadbeef
+
 CC=gcc
 CXX=g++
 STD=gnu99
-CFLAGS+=-fPIC -I /usr/local/include -Wall
-CXXFLAGS+=-fPIC -I /usr/local/include -Wall
+CFLAGS+=-fPIC -I $(deadbeef_prefix)/include -Wall
+CXXFLAGS+=-fPIC -I $(deadbeef_prefix)/include -Wall
 ifeq ($(DEBUG),1)
 CFLAGS +=-g -O0
 CXXFLAGS +=-g -O0
 endif
 
-PREFIX=/usr/local/lib/deadbeef
+PREFIX=$(deadbeef_prefix)/lib/deadbeef
 PLUGNAME=cust_seek
 LIBS=
 
